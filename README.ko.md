@@ -1,23 +1,23 @@
-# Luo Design
-> Vanilla CSS/JS design library that just works as is.
+# Luo Design (루오디자인)
+> 그저 넣기만 하면 되는 바닐라 CSS/JS 디자인 라이브러리 !
 
-Luo Design is a glassmorphic, responsive design system built with vanilla CSS and JavaScript. Create modern, animation-rich UI that works in Web, PWA, and Mobile apps. No other frameworks or libraries needed.
+루오디자인은 글래스모피즘과 반응형 디자인 시스템으로, 순수 CSS와 JavaScript로 만들었어요. 웹, PWA, 모바일 앱에서 작동하는 현대적이고 애니메이션이 풍부한 UI를 만들어보세요. 다른 프레임워크나 라이브러리는 필요 없어요.
 
 ---
 
-## Specifications
+## 특징
 
-* **Motion:** Features "Squish" interactions and Spring-based animations.
-* **API:** Use **Declarative HTML** (data-attributes) or **Programmatic JS** (LuoDesign API).
-* **Zero Dependencies:** Lightweight and fast. No external JS libraries needed.
+* **모션:** 탄력 있는 애니메이션과 말랑말랑한 (squish) 인터랙션을 제공해요.
+* **API:** data-attributes를 활용한 선언적 HTML 방식과 LuoDesign API를 활용한 프로그래밍 방식 모두 지원해요.
+* **종속성:** JS 라이브러리요 ? 그게 머죠 ? 루오디자인은 가볍고 빠르며, 외부 JS 라이브러리가 필요 없어요.
 
-## Installation
+## 설치
 
 ```bash
 npm install luodesign
 ````
 
-Or via CDN:
+또는 CDN을 이용하세요.
 
 ```html
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/luodesign/luodesign.css](https://cdn.jsdelivr.net/npm/luodesign/luodesign.css)">
@@ -26,26 +26,26 @@ Or via CDN:
 
 -----
 
-## Quick Start
+## 빠른 시작
 
-### 1\. Setup
+### 1\. 선언
 
-Include the Pretendard font and Mingcute icon set for the best experience.
+프리텐다드와 Mingcute 아이콘 세트를 포함하세요.
 
 ```html
 <link href="[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap)" rel="stylesheet">
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css](https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css)">
 ```
 
-Using React? You may import the CSS directly:
+React를 사용하신다구요 ? CSS를 직접 가져올 수 있어요.
 
 ```jsx
 import "luodesign/luodesign.css";
 ```
 
-### 2\. Basic Components
+### 2\. 기본 컴포넌트
 
-Luo Design uses intuitive utility classes.
+루오디자인은 직관적인 유틸리티 클래스를 사용해요.
 
 ```html
 <button class="ld-btn ld-btn-primary ld-btn-lg">
@@ -65,9 +65,9 @@ Luo Design uses intuitive utility classes.
 </div>
 ```
 
-### 3\. Interactive Components (JS)
+### 3\. 상호 작용 컴포넌트 (JS)
 
-Components like **Segmented Controls** and **Bottom Sheets** work automatically using `data-ld-*` attributes.
+**탭 컨트롤**과 **하단 시트**와 같은 컴포넌트는 `data-ld-*` 속성을 사용하여 자동으로 작동해요.
 
 ```html
 <div class="ld-seg" data-ld-seg>
@@ -77,15 +77,15 @@ Components like **Segmented Controls** and **Bottom Sheets** work automatically 
 </div>
 
 <script>
-  LuoDesign.toast("Welcome to Luo Design!");
+  LuoDesign.toast("루오디자인에 어서 와요 !");
 </script>
 ```
 
 -----
 
-## Demo
+## 예시
 
-### Bottom Sheet Example
+### 하단 시트
 
 ```html
 <button data-ld-trigger="mySheet">Open Sheet</button>
@@ -98,7 +98,7 @@ Components like **Segmented Controls** and **Bottom Sheets** work automatically 
 </div>
 ```
 
-### AI Chat Input
+### AI 채팅 입력 창
 
 ```html
 <div class="ld-chat-input-bar" data-ld-chat>
@@ -111,12 +111,12 @@ Components like **Segmented Controls** and **Bottom Sheets** work automatically 
 
 -----
 
-## License
+## 라이선스
 
-This project is licensed under the **MIT License**.
+**MIT 라이선스**로 배포돼요.
 
 -----
 
-## For AI Agents
+## AI 에이전트를 사용하시나요 ?
 
-Are you building with an AI agent? Use our AGENTS.md guide for optimized code generation and library-specific rules.
+AI 에이전트와 함께 빌드하고 계신가요 ? 최적화된 코드 생성과 라이브러리별 규칙에 대한 AGENTS.md 가이드를 활용하세요.

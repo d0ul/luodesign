@@ -1,11 +1,11 @@
 {
-  "name": "luody",
+  "name": "luodesign",
   "version": "1.0.0",
-  "description": "그저 넣기만 하면 작동되는 미려한 바닐라 CSS/JS 컴포넌트 라이브러리",
-  "main": "luody.css",
+  "description": "Vanilla CSS/JS design library that just works as is.",
+  "main": "luodesign.css",
   "files": [
-    "luody.css",
-    "luody.js"
+    "luodesign.css",
+    "luodesign.js",
     "README.md"
   ],
   "keywords": ["css", "ui-kit", "responsive", "vanilla-css"],
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/d0ul/luody.git"
+    "url": "git+https://github.com/d0ul/luodesign.git"
   },
   "author": "d0ul",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/d0ul/luody/issues"
+    "url": "https://github.com/d0ul/luodesign/issues"
   },
-  "homepage": "https://github.com/d0ul/luody#readme"
+  "homepage": "https://github.com/d0ul/luodesign#readme"
 }

@@ -3,7 +3,7 @@
     ? (module.exports = factory())
     : typeof define === "function" && define.amd
       ? define(factory)
-      : (global.Luody = factory());
+      : (global.LuoDesign = factory());
 })(
   typeof globalThis !== "undefined"
     ? globalThis
@@ -102,7 +102,7 @@
       const s = typeof sheetEl === "string" ? $(sheetEl) : sheetEl;
       const b = typeof backdropEl === "string" ? $(backdropEl) : backdropEl;
 
-      if (!s) throw new Error("[Luody] sheet: 시트 요소를 찾을 수 없어요.");
+      if (!s) throw new Error("[LuoDesign] sheet: 시트 요소를 찾을 수 없어요.");
 
       function open() {
         s.classList.add("open");
@@ -127,7 +127,7 @@
       opts = Object.assign({}, opts);
 
       const root = typeof el === "string" ? $(el) : el;
-      if (!root) throw new Error("[Luody] seg: 요소를 찾을 수 없어요.");
+      if (!root) throw new Error("[LuoDesign] seg: 요소를 찾을 수 없어요.");
 
       const items = $$(".ld-seg-item", root);
       let ind = $(".ld-seg-indicator", root);
@@ -167,7 +167,7 @@
       opts = Object.assign({}, opts);
 
       const root = typeof el === "string" ? $(el) : el;
-      if (!root) throw new Error("[Luody] dock: 요소를 찾을 수 없어요.");
+      if (!root) throw new Error("[LuoDesign] dock: 요소를 찾을 수 없어요.");
 
       const items = $$(".ld-dock-item", root);
       let ind = $(".ld-dock-indicator", root);
@@ -223,7 +223,7 @@
           ? $(scrollEl)
           : scrollEl
         : window;
-      if (!h) throw new Error("[Luody] appHeader: 헤더 요소를 찾을 수 없어요.");
+      if (!h) throw new Error("[LuoDesign] appHeader: 헤더 요소를 찾을 수 없어요.");
 
       function onScroll() {
         const t = sc === window ? sc.scrollY : sc.scrollTop;
@@ -254,7 +254,7 @@
           : opts.scrollEl
         : window;
       if (!btn)
-        throw new Error("[Luody] backToTop: 버튼 요소를 찾을 수 없어요.");
+        throw new Error("[LuoDesign] backToTop: 버튼 요소를 찾을 수 없어요.");
 
       function onScroll() {
         const y = sc === window ? sc.scrollY : sc.scrollTop;
@@ -277,13 +277,13 @@
 
       const bar = typeof barEl === "string" ? $(barEl) : barEl;
       if (!bar)
-        throw new Error("[Luody] chatInput: 입력창 요소를 찾을 수 없어요.");
+        throw new Error("[LuoDesign] chatInput: 입력창 요소를 찾을 수 없어요.");
 
       const ta = $(".ld-chat-textarea", bar);
       const send = $(".ld-chat-send", bar);
       if (!ta)
         throw new Error(
-          "[Luody] chatInput: .ld-chat-textarea 를 찾을 수 없어요.",
+          "[LuoDesign] chatInput: .ld-chat-textarea 를 찾을 수 없어요.",
         );
 
       function grow() {
@@ -326,7 +326,7 @@
       opts = Object.assign({ value: 1, min: 0, max: Infinity, step: 1 }, opts);
 
       const root = typeof el === "string" ? $(el) : el;
-      if (!root) throw new Error("[Luody] stepper: 요소를 찾을 수 없어요.");
+      if (!root) throw new Error("[LuoDesign] stepper: 요소를 찾을 수 없어요.");
 
       const valEl = $(".ld-stepper-val", root);
       const btns = $$(".ld-stepper-btn", root);

@@ -10,11 +10,11 @@ This document provides strict rules and class references for AI agents to genera
 ```html
 <link href="[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap)" rel="stylesheet">
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css](https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css)">
-<link rel="stylesheet" href="luo-design.css">
-<script src="luo-design.js"></script>
+<link rel="stylesheet" href="luodesign.css">
+<script src="luodesign.js"></script>
 ```
 
-`luo-design.js` automatically scans `data-ld-*` attributes after `DOMContentLoaded` to initialize components. It supports both **Declarative (HTML attributes)** and **Programmatic (JS calls)** methods.
+`luodesign.js` automatically scans `data-ld-*` attributes after `DOMContentLoaded` to initialize components. It supports both **Declarative (HTML attributes)** and **Programmatic (JS calls)** methods.
 
 ---
 
