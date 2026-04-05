@@ -1,0 +1,2603 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LuoDesign CSS</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css"
+        />
+
+        <link rel="stylesheet" href="luodesign.css" />
+        <style>
+            body {
+                background: #0f0a1a;
+            }
+            .doc-layout {
+                display: grid;
+                grid-template-columns: 220px 1fr;
+                min-height: 100vh;
+            }
+            .doc-nav {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+                background: #0f0a1a;
+                padding: 32px 0;
+                border-right: 1px solid rgba(255, 255, 255, 0.06);
+                scrollbar-width: none;
+            }
+            .doc-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .doc-nav-logo {
+                padding: 0 24px 28px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                margin-bottom: 20px;
+            }
+            .doc-nav-logo-word {
+                font-family: var(--font-display);
+                font-size: 26px;
+                color: white;
+                letter-spacing: -0.01em;
+                line-height: 1;
+            }
+            .doc-nav-logo-sub {
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.3);
+                margin-top: 4px;
+            }
+            .doc-nav-section {
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.25);
+                padding: 16px 24px 6px;
+            }
+            .doc-nav-link {
+                display: block;
+                padding: 8px 24px;
+                font-size: 13px;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.45);
+                text-decoration: none;
+                transition: color 0.15s;
+            }
+            .doc-nav-link:hover {
+                color: white;
+            }
+            .doc-nav-link.active {
+                color: var(--ld-violet-300);
+            }
+            .doc-main {
+                background: var(--ld-grey-100);
+                min-height: 100vh;
+            }
+            .doc-hero {
+                background: linear-gradient(
+                    160deg,
+                    #0f0a1a 0%,
+                    #1e1040 50%,
+                    #2d1a5e 100%
+                );
+                padding: 80px 64px 72px;
+            }
+            .doc-hero-title {
+                font-family: var(--font-display);
+                font-size: 52px;
+                font-weight: 400;
+                color: white;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+                margin-bottom: 16px;
+            }
+            .doc-hero-title span {
+                color: var(--ld-violet-300);
+            }
+            .doc-hero-desc {
+                font-size: 16px;
+                line-height: 1.7;
+                color: rgba(255, 255, 255, 0.55);
+                max-width: 520px;
+            }
+            .doc-content {
+                padding: 56px 64px;
+            }
+            .doc-section {
+                margin-bottom: 72px;
+            }
+            .doc-section-title {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ld-violet-500);
+                margin-bottom: 8px;
+            }
+            .doc-section-heading {
+                font-family: var(--font-display);
+                font-size: 32px;
+                color: var(--ld-grey-900);
+                letter-spacing: -0.02em;
+                line-height: 1.2;
+                margin-bottom: 8px;
+            }
+            .doc-section-desc {
+                font-size: 15px;
+                color: var(--ld-grey-600);
+                line-height: 1.7;
+                max-width: 600px;
+                margin-bottom: 32px;
+            }
+            .doc-rule {
+                width: 100%;
+                height: 1px;
+                background: var(--ld-grey-200);
+                margin: 40px 0;
+            }
+            .doc-subsection {
+                margin-bottom: 40px;
+            }
+            .doc-subsection-label {
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--ld-grey-500);
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                margin-bottom: 14px;
+            }
+            .doc-preview {
+                background: white;
+                border-radius: var(--r-lg);
+                border: 1px solid var(--ld-grey-200);
+                padding: 32px;
+            }
+            .doc-preview.grey {
+                background: var(--ld-grey-100);
+            }
+            .doc-code {
+                background: #1a1a2e;
+                border-radius: var(--r-sm);
+                padding: 16px 20px;
+                font-family: "SF Mono", "Fira Code", monospace;
+                font-size: 12.5px;
+                line-height: 1.7;
+                color: #c9d1d9;
+                margin-top: 12px;
+                overflow-x: auto;
+            }
+            .doc-code .k {
+                color: #ff79c6;
+            }
+            .doc-code .p {
+                color: #8be9fd;
+            }
+            .doc-code .v {
+                color: #f1fa8c;
+            }
+            .doc-code .s {
+                color: #50fa7b;
+            }
+            .doc-code .c {
+                color: #6272a4;
+            }
+            .doc-prop-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 12px;
+            }
+            .doc-prop-card {
+                background: white;
+                border-radius: var(--r-md);
+                border: 1px solid var(--ld-grey-200);
+                padding: 16px;
+            }
+            .doc-prop-name {
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--ld-grey-500);
+                font-family: monospace;
+                margin-bottom: 6px;
+            }
+            .doc-prop-val {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--ld-grey-900);
+            }
+            .flex-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                align-items: center;
+            }
+            .swatch-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
+            .swatch {
+                height: 48px;
+                border-radius: var(--r-sm);
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.15s var(--spring);
+            }
+            .swatch:hover {
+                transform: scale(1.06);
+            }
+            .swatch:active {
+                transform: scale(0.95);
+            }
+            .swatch-label {
+                font-size: 10px;
+                font-weight: 600;
+                color: var(--ld-grey-500);
+                margin-top: 4px;
+                font-family: monospace;
+            }
+            .swatch-copied {
+                position: absolute;
+                inset: 0;
+                border-radius: var(--r-sm);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.55);
+                color: white;
+                font-size: 10px;
+                font-weight: 700;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s;
+            }
+            .swatch.is-copied .swatch-copied {
+                opacity: 1;
+            }
+            .type-row {
+                display: flex;
+                align-items: baseline;
+                gap: 24px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+            .type-meta {
+                min-width: 140px;
+                flex-shrink: 0;
+            }
+            .type-meta .size {
+                font-size: 11px;
+                font-weight: 600;
+                color: var(--ld-grey-400);
+                font-family: monospace;
+            }
+            .type-sample {
+                flex: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="doc-layout">
+            <nav class="doc-nav">
+                <div class="doc-nav-logo">
+                    <div class="doc-nav-logo-word">LuoDesign</div>
+                    <div class="doc-nav-logo-sub">v1.0</div>
+                </div>
+                <div class="doc-nav-section">기반</div>
+                <a href="#colors" class="doc-nav-link active">컬러 토큰</a>
+                <a href="#typography" class="doc-nav-link">타이포그래피</a>
+                <a href="#motion" class="doc-nav-link">모션</a>
+                <div class="doc-nav-section">컴포넌트</div>
+                <a href="#buttons" class="doc-nav-link">버튼/FAB</a>
+                <a href="#chips" class="doc-nav-link">칩/배지</a>
+                <a href="#cards" class="doc-nav-link">카드/리스트</a>
+                <a href="#inputs" class="doc-nav-link">텍스트 필드</a>
+                <a href="#controls" class="doc-nav-link">컨트롤</a>
+                <a href="#seg" class="doc-nav-link">세그먼트 컨트롤</a>
+                <div class="doc-nav-section">레이아웃</div>
+                <a href="#appheader" class="doc-nav-link">앱 헤더</a>
+                <a href="#dock" class="doc-nav-link">내비게이션</a>
+                <a href="#webheader" class="doc-nav-link">웹 헤더</a>
+                <a href="#webfooter" class="doc-nav-link">웹 푸터</a>
+                <div class="doc-nav-section">오버레이</div>
+                <a href="#sheet" class="doc-nav-link">하단 시트</a>
+                <a href="#toast" class="doc-nav-link">토스트</a>
+                <div class="doc-nav-section">패턴</div>
+                <a href="#squish" class="doc-nav-link">스퀴시 인터랙션</a>
+                <a href="#chat" class="doc-nav-link">채팅 입력</a>
+                <a href="#prpage" class="doc-nav-link">데모</a>
+            </nav>
+            <main class="doc-main">
+                <div class="doc-hero">
+                    <h1 class="doc-hero-title">LuoDesign</h1>
+                    <p class="doc-hero-desc">
+                        <strong
+                            >그저 넣기만 하면 되는 바닐라 CSS/JS 디자인
+                            라이브러리 !</strong
+                        ><br />
+                        Vanilla CSS로 구축한 반응형, 글래스모피즘 디자인
+                        시스템이에요.<br />
+                        PWA·웹·앱 어디서나 일관된 경험을 제공하는 데 초점을 두고
+                        있어요.
+                    </p>
+                </div>
+                <div class="doc-content">
+                    <section class="doc-section" id="colors">
+                        <div class="doc-section-title">기반</div>
+                        <h2 class="doc-section-heading">컬러 토큰</h2>
+                        <p class="doc-section-desc">
+                            각 항목은 클릭해서 복사할 수 있어요.<br />
+                            테마 색상인 바이올렛은 아이덴티티, 프라이머리 액션에
+                            사용해요. 그레이는 본문, 제목, 배경, 테두리 등 UI
+                            전반에 걸쳐 다양한 톤으로 활용해요. 시맨틱 컬러는
+                            상태와 피드백을 전달하는 데 사용해요.
+                        </p>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">바이올렛</div>
+                            <div class="doc-preview">
+                                <div class="swatch-grid">
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #f5f3ff"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-50',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            50 · #f5f3ff
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #ede9fe"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-100',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            100 · #ede9fe
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #ddd6fe"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-200',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            200 · #ddd6fe
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #a78bfa"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-300',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            300 · #a78bfa
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #8b5cf6"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-400',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            400 · #8b5cf6
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="
+                                                background: #7c3aed;
+                                                border: 1px solid #ddd;
+                                            "
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-500',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            500 · #7c3aed
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #5b21b6"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-violet-600',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            600 · #5b21b6
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-code">
+                                <span class="k">--ld-violet-500</span>:
+                                <span class="v">#7c3aed</span>;
+                                <span class="c"></span>
+                                <span class="k">--ld-violet-400</span>:
+                                <span class="v">#8b5cf6</span>;
+                                <span class="c"></span>
+                                <span class="k">--ld-violet-100</span>:
+                                <span class="v">#ede9fe</span>;
+                                <span class="c"></span>
+                                <span class="k">--ld-violet-50 </span>:
+                                <span class="v">#f5f3ff</span>;
+                                <span class="c"></span>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">그레이</div>
+                            <div class="doc-preview">
+                                <div class="swatch-grid">
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #f2f4f6"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-100',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            100 · 페이지 배경
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #e5e8eb"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-200',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            200 · 테두리
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #d1d6db"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-300',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            300 · 구분선
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #b0b8c1"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-400',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            400 · 비활성
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #8b95a1"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-500',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            500 · 플레이스홀더
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #6b7684"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-600',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            600 · 아이콘
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #4e5968"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-700',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            700 · 보조 텍스트
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #333d4b"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-800',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            800 · 본문
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="background: #191f28"
+                                            onclick="
+                                                copySwatch(
+                                                    this,
+                                                    '--ld-grey-900',
+                                                )
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            900 · 제목
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">시맨틱</div>
+                            <div class="doc-preview">
+                                <div style="display: flex; gap: 12px">
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="
+                                                background: #f04452;
+                                                width: 80px;
+                                            "
+                                            onclick="
+                                                copySwatch(this, '--ld-red')
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            Red · #f04452
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="
+                                                background: #04c065;
+                                                width: 80px;
+                                            "
+                                            onclick="
+                                                copySwatch(this, '--ld-green')
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            Green · #04c065
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="swatch"
+                                            style="
+                                                background: #f59e0b;
+                                                width: 80px;
+                                            "
+                                            onclick="
+                                                copySwatch(this, '--ld-amber')
+                                            "
+                                        >
+                                            <div class="swatch-copied">
+                                                복사 완료 !
+                                            </div>
+                                        </div>
+                                        <div class="swatch-label">
+                                            Amber · #f59e0b
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="typography">
+                        <div class="doc-section-title">기반</div>
+                        <h2 class="doc-section-heading">타이포그래피</h2>
+                        <p class="doc-section-desc">
+                            <strong>Pretendard</strong>를 디스플레이·UI 텍스트
+                            모두에 사용해요.
+                        </p>
+                        <div class="doc-preview">
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size"
+                                        >.ld-display / 40px 400</span
+                                    >
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-display"
+                                        >디스플레이 헤딩</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-t1 / 32px 700</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-t1">T1. 페이지 제목</span>
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-t2 / 24px 700</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-t2">T2. 섹션 제목</span>
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-t3 / 20px 700</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-t3">T3. 카드 제목</span>
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-t4 / 18px 700</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-t4">T4. 서브섹션</span>
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    height: 1px;
+                                    background: var(--ld-grey-100);
+                                    margin: 20px 0;
+                                "
+                            ></div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-body-lg / 17px</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-body-lg"
+                                        >Body Large. 긴 글 읽기에 최적화된 큰
+                                        본문 텍스트.</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-body / 15px</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-body"
+                                        >Body. 기본 단락 텍스트. 모바일 가독성
+                                        최적화.</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size">.ld-body-sm / 13px</span>
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-body-sm"
+                                        >Body Small. 캡션, 도움말, 타임스탬프,
+                                        메타데이터.</span
+                                    >
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    height: 1px;
+                                    background: var(--ld-grey-100);
+                                    margin: 20px 0;
+                                "
+                            ></div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size"
+                                        >.ld-label-lg / 15px 600</span
+                                    >
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-label-lg"
+                                        >Label Large. 리스트 로우 제목</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size"
+                                        >.ld-label / 13px 600</span
+                                    >
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-label"
+                                        >Label. 태그, 버튼 SM 텍스트</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="type-row">
+                                <div class="type-meta">
+                                    <span class="size"
+                                        >.ld-label-sm / 11px 700</span
+                                    >
+                                </div>
+                                <div class="type-sample">
+                                    <span class="ld-label-sm"
+                                        >Label Small. 섹션 헤더</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="motion">
+                        <div class="doc-section-title">기반</div>
+                        <h2 class="doc-section-heading">모션</h2>
+                        <p class="doc-section-desc">
+                            부드러운 모션을 위해 스프링과 말랑말랑(squish)
+                            효과를 사용해요.
+                        </p>
+                        <div class="doc-preview">
+                            <div class="doc-prop-grid">
+                                <div class="doc-prop-card">
+                                    <div class="doc-prop-name">--spring</div>
+                                    <div
+                                        class="doc-prop-val"
+                                        style="font-size: 12px"
+                                    >
+                                        cubic-bezier(0.2, 0.8, 0.4, 1)
+                                    </div>
+                                    <div
+                                        style="
+                                            font-size: 12px;
+                                            color: var(--ld-grey-500);
+                                            margin-top: 4px;
+                                        "
+                                    >
+                                        스프링
+                                    </div>
+                                </div>
+                                <div class="doc-prop-card">
+                                    <div class="doc-prop-name">
+                                        --spring-bounce
+                                    </div>
+                                    <div
+                                        class="doc-prop-val"
+                                        style="font-size: 12px"
+                                    >
+                                        cubic-bezier(0.175, 0.885, 0.32, 1.275)
+                                    </div>
+                                    <div
+                                        style="
+                                            font-size: 12px;
+                                            color: var(--ld-grey-500);
+                                            margin-top: 4px;
+                                        "
+                                    >
+                                        스프링 + 바운스
+                                    </div>
+                                </div>
+                                <div class="doc-prop-card">
+                                    <div class="doc-prop-name">.ld-squish</div>
+                                    <div
+                                        class="doc-prop-val"
+                                        style="font-size: 12px"
+                                    >
+                                        scale(0.94) brightness(0.92)
+                                    </div>
+                                    <div
+                                        style="
+                                            font-size: 12px;
+                                            color: var(--ld-grey-500);
+                                            margin-top: 4px;
+                                        "
+                                    >
+                                        버튼 등 동적 요소에 추가
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="buttons">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">버튼/FAB</h2>
+                        <p class="doc-section-desc">
+                            글래스모피즘은 이용자 경험을 해치지 않도록
+                            제한적으로 사용해요. 버튼은 가독성을 높이기 위해 xl
+                            스타일에서만 글로우와 그라데이션이 적용돼요.
+                        </p>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">변형</div>
+                            <div class="doc-preview">
+                                <div class="flex-wrap">
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-lg"
+                                    >
+                                        Primary
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-secondary ld-btn-lg"
+                                    >
+                                        Secondary
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-outline ld-btn-lg"
+                                    >
+                                        Outline
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-ghost ld-btn-lg"
+                                    >
+                                        Ghost
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-danger ld-btn-lg"
+                                    >
+                                        Danger
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-lg ld-btn-disabled"
+                                    >
+                                        Disabled
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">크기</div>
+                            <div class="doc-preview">
+                                <div
+                                    class="flex-wrap"
+                                    style="align-items: center"
+                                >
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-xl"
+                                    >
+                                        XL · 56px
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-lg"
+                                    >
+                                        LG · 48px
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-md"
+                                    >
+                                        MD · 40px
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-sm"
+                                    >
+                                        SM · 32px
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">
+                                전체 너비 (하단 CTA)
+                            </div>
+                            <div class="doc-preview" style="padding: 24px 20px">
+                                <button
+                                    class="ld-btn ld-btn-primary ld-btn-xl ld-btn-full"
+                                >
+                                    <span
+                                        class="mgc_send_plane_line"
+                                        style="font-size: 18px"
+                                    ></span>
+                                    보내기
+                                </button>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">FAB</div>
+                            <div
+                                class="doc-preview grey"
+                                style="
+                                    display: flex;
+                                    gap: 16px;
+                                    align-items: center;
+                                "
+                            >
+                                <button
+                                    class="ld-icon-btn ld-fab ld-squish"
+                                    style="width: 52px; height: 52px"
+                                >
+                                    <span
+                                        class="mgc_notification_line"
+                                        style="
+                                            font-size: 20px;
+                                            color: var(--ld-grey-700);
+                                        "
+                                    ></span>
+                                </button>
+                                <button
+                                    class="ld-icon-btn ld-fab ld-squish"
+                                    style="width: 44px; height: 44px"
+                                >
+                                    <span
+                                        class="mgc_left_line"
+                                        style="
+                                            font-size: 18px;
+                                            color: var(--ld-grey-700);
+                                        "
+                                    ></span>
+                                </button>
+                                <button
+                                    class="ld-icon-btn ld-fab ld-squish"
+                                    style="width: 36px; height: 36px"
+                                >
+                                    <span
+                                        class="mgc_search_line"
+                                        style="
+                                            font-size: 16px;
+                                            color: var(--ld-grey-700);
+                                        "
+                                    ></span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="chips">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">칩/배지</h2>
+                        <p class="doc-section-desc">
+                            알약 형태의 칩과 배지는 상태 또는 속성을 나타내는 데
+                            사용돼요.
+                        </p>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">칩</div>
+                            <div class="doc-preview">
+                                <div
+                                    class="flex-wrap"
+                                    style="margin-bottom: 12px"
+                                >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-violet ld-squish"
+                                        >보라</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-neutral ld-squish"
+                                        >중립</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-green ld-squish"
+                                        >성공</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-red ld-squish"
+                                        >오류</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-amber ld-squish"
+                                        >경고</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-lg ld-chip-outline ld-squish"
+                                        >아웃라인</span
+                                    >
+                                </div>
+                                <div class="flex-wrap">
+                                    <span
+                                        class="ld-chip ld-chip-md ld-chip-violet ld-squish"
+                                        >MD 사이즈</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-sm ld-chip-neutral ld-squish"
+                                        >SM 사이즈</span
+                                    >
+                                    <span
+                                        class="ld-chip ld-chip-md ld-chip-green ld-squish"
+                                        ><span
+                                            class="mgc_check_line"
+                                            style="font-size: 13px"
+                                        ></span
+                                        >인증완료</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">배지</div>
+                            <div class="doc-preview">
+                                <div class="flex-wrap">
+                                    <span
+                                        class="ld-badge ld-badge-violet ld-badge-dot"
+                                        >PRO</span
+                                    >
+                                    <span
+                                        class="ld-badge ld-badge-green ld-badge-dot"
+                                        >활성</span
+                                    >
+                                    <span
+                                        class="ld-badge ld-badge-red ld-badge-dot"
+                                        >오류</span
+                                    >
+                                    <span
+                                        class="ld-badge ld-badge-neutral ld-badge-dot"
+                                        >대기중</span
+                                    >
+                                    <span class="ld-badge ld-badge-violet"
+                                        >NEW</span
+                                    >
+                                    <span class="ld-badge ld-badge-red">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="cards">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">카드/리스트 로우</h2>
+                        <p class="doc-section-desc">
+                            카드와 리스트 로우는 정보를 그룹화하고 계층 구조를
+                            제공하는 데 사용돼요.
+                        </p>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">
+                                헤더가 있는 카드
+                            </div>
+                            <div class="doc-preview grey">
+                                <div class="ld-card-section">
+                                    <div
+                                        style="
+                                            padding: 16px 20px;
+                                            border-bottom: 1px solid
+                                                var(--ld-grey-100);
+                                        "
+                                    >
+                                        <div class="ld-t4" style="margin: 0">
+                                            내 포트폴리오
+                                        </div>
+                                    </div>
+                                    <div class="ld-list-row ld-squish">
+                                        <div
+                                            class="ld-lr-icon ld-lr-icon-violet"
+                                        >
+                                            A
+                                        </div>
+                                        <div class="ld-lr-content">
+                                            <div class="ld-lr-title">
+                                                Apple Inc.
+                                            </div>
+                                            <div class="ld-lr-sub">
+                                                AAPL · 5주
+                                            </div>
+                                        </div>
+                                        <div class="ld-lr-right">
+                                            <span
+                                                class="ld-lr-value ld-lr-value-pos"
+                                                >+₩42,000</span
+                                            ><span class="ld-lr-chevron"
+                                                ><span
+                                                    class="mgc_right_line"
+                                                ></span
+                                            ></span>
+                                        </div>
+                                    </div>
+                                    <div class="ld-list-row ld-squish">
+                                        <div class="ld-lr-icon">N</div>
+                                        <div class="ld-lr-content">
+                                            <div class="ld-lr-title">
+                                                Netflix
+                                            </div>
+                                            <div class="ld-lr-sub">
+                                                NFLX · 2주
+                                            </div>
+                                        </div>
+                                        <div class="ld-lr-right">
+                                            <span
+                                                class="ld-lr-value ld-lr-value-neg"
+                                                >-₩18,500</span
+                                            ><span class="ld-lr-chevron"
+                                                ><span
+                                                    class="mgc_right_line"
+                                                ></span
+                                            ></span>
+                                        </div>
+                                    </div>
+                                    <div class="ld-list-row ld-squish">
+                                        <div
+                                            class="ld-lr-icon ld-lr-icon-green"
+                                        >
+                                            G
+                                        </div>
+                                        <div class="ld-lr-content">
+                                            <div class="ld-lr-title">
+                                                Google
+                                            </div>
+                                            <div class="ld-lr-sub">
+                                                GOOGL · 1주
+                                            </div>
+                                        </div>
+                                        <div class="ld-lr-right">
+                                            <div
+                                                class="ld-spinner"
+                                                style="
+                                                    width: 16px;
+                                                    height: 16px;
+                                                    border-width: 2px;
+                                                "
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-subsection">
+                            <div class="doc-subsection-label">리스트 로우</div>
+                            <div class="doc-preview grey">
+                                <div class="ld-card-section">
+                                    <div class="ld-list-row ld-squish">
+                                        <div
+                                            class="ld-lr-icon ld-lr-icon-circle ld-lr-icon-red"
+                                        >
+                                            <span
+                                                class="mgc_shopping_cart_1_line"
+                                                style="font-size: 18px"
+                                            ></span>
+                                        </div>
+                                        <div class="ld-lr-content">
+                                            <div class="ld-lr-title">
+                                                쿠팡 로켓배송
+                                            </div>
+                                            <div class="ld-lr-sub">
+                                                어제 · 생활용품
+                                            </div>
+                                        </div>
+                                        <div class="ld-lr-right">
+                                            <button
+                                                class="ld-btn ld-btn-secondary ld-btn-sm ld-squish"
+                                            >
+                                                상세
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="ld-list-row ld-squish">
+                                        <div
+                                            class="ld-lr-icon ld-lr-icon-circle"
+                                        >
+                                            <span
+                                                class="mgc_home_3_line"
+                                                style="
+                                                    font-size: 18px;
+                                                    color: var(--ld-grey-600);
+                                                "
+                                            ></span>
+                                        </div>
+                                        <div class="ld-lr-content">
+                                            <div class="ld-lr-title">
+                                                관리비
+                                            </div>
+                                            <div class="ld-lr-sub">
+                                                3일 전 · 자동이체
+                                            </div>
+                                        </div>
+                                        <div class="ld-lr-right">
+                                            <span
+                                                class="ld-lr-value ld-lr-value-neg"
+                                                >-₩85,000</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="inputs">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">텍스트 필드</h2>
+                        <p class="doc-section-desc">
+                            검색, 폼 입력 등 다양한 시나리오에 맞게 사용할 수
+                            있어요.
+                        </p>
+                        <div class="doc-preview">
+                            <div
+                                style="
+                                    display: grid;
+                                    gap: 16px;
+                                    max-width: 400px;
+                                "
+                            >
+                                <div>
+                                    <label class="ld-field-label">이름</label>
+                                    <div
+                                        class="ld-input-wrap"
+                                        data-ld-input-clear
+                                    >
+                                        <input
+                                            class="ld-input"
+                                            type="text"
+                                            placeholder="이도울"
+                                        />
+                                        <button
+                                            class="ld-input-clear"
+                                            tabindex="-1"
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="ld-field-label">이메일</label>
+                                    <div
+                                        class="ld-input-wrap"
+                                        data-ld-input-clear
+                                    >
+                                        <input
+                                            class="ld-input"
+                                            type="email"
+                                            placeholder="support@pcor.me"
+                                        />
+                                        <button
+                                            class="ld-input-clear"
+                                            tabindex="-1"
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="ld-search-wrap" data-ld-input-clear>
+                                    <span class="ld-search-icon"
+                                        ><span class="mgc_search_line"></span
+                                    ></span>
+                                    <input
+                                        class="ld-input ld-input-search"
+                                        type="search"
+                                        placeholder="검색어를 입력하세요."
+                                    />
+                                    <button
+                                        class="ld-input-clear"
+                                        tabindex="-1"
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+                                <div>
+                                    <label class="ld-field-label"
+                                        >전달 사항</label
+                                    >
+                                    <textarea
+                                        class="ld-textarea"
+                                        placeholder="내용을 입력하세요."
+                                        rows="3"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="controls">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">컨트롤</h2>
+                        <div class="doc-preview grey">
+                            <div class="ld-card-section">
+                                <div class="ld-list-row">
+                                    <div class="ld-lr-content">
+                                        <div class="ld-lr-title">야간 알림</div>
+                                        <div class="ld-lr-sub">
+                                            00시~06시 사이에 광고성 알림을
+                                            받아요.
+                                        </div>
+                                    </div>
+                                    <div class="ld-lr-right">
+                                        <label class="ld-switch"
+                                            ><input
+                                                type="checkbox"
+                                                checked /><span
+                                                class="ld-sw-track"
+                                            ></span
+                                        ></label>
+                                    </div>
+                                </div>
+                                <div class="ld-list-row">
+                                    <div class="ld-lr-content">
+                                        <div class="ld-lr-title">
+                                            제3자 개인정보 공유
+                                        </div>
+                                    </div>
+                                    <div class="ld-lr-right">
+                                        <label class="ld-switch"
+                                            ><input type="checkbox" /><span
+                                                class="ld-sw-track"
+                                            ></span
+                                        ></label>
+                                    </div>
+                                </div>
+                                <div class="ld-list-row">
+                                    <div class="ld-lr-content">
+                                        <label class="ld-checkbox-wrap">
+                                            <input type="checkbox" checked />
+                                            <span class="ld-checkmark"
+                                                ><span
+                                                    class="mgc_check_line"
+                                                    style="font-size: 13px"
+                                                ></span
+                                            ></span>
+                                            <span class="ld-label-lg"
+                                                >이용약관에 동의하고, 만 14세
+                                                이상이에요.</span
+                                            >
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="ld-list-row" style="border: none">
+                                    <div class="ld-lr-content">
+                                        <div class="ld-lr-title">수량</div>
+                                    </div>
+                                    <div class="ld-lr-right">
+                                        <div
+                                            class="ld-stepper"
+                                            data-ld-stepper
+                                            data-min="0"
+                                            data-max="99"
+                                            data-value="1"
+                                        >
+                                            <button class="ld-stepper-btn">
+                                                −
+                                            </button>
+                                            <div class="ld-stepper-val">1</div>
+                                            <button class="ld-stepper-btn">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="seg">
+                        <div class="doc-section-title">컴포넌트</div>
+                        <h2 class="doc-section-heading">세그먼트 컨트롤</h2>
+                        <p class="doc-section-desc">
+                            탭을 클릭하면 인디케이터가 바운스 효과와 함께
+                            슬라이딩되며 활성 탭을 강조 표시해요.
+                        </p>
+                        <div class="doc-preview grey" style="padding: 24px">
+                            <div
+                                class="ld-seg"
+                                data-ld-seg
+                                style="max-width: 360px; margin: 0 auto"
+                            >
+                                <div class="ld-seg-item active">전체</div>
+                                <div class="ld-seg-item">오늘</div>
+                                <div class="ld-seg-item">이번 주</div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="appheader">
+                        <div class="doc-section-title">레이아웃</div>
+                        <h2 class="doc-section-heading">앱 헤더</h2>
+                        <p class="doc-section-desc">
+                            스크롤에 따라 글래스모피즘이 적용되고, 투명도가
+                            조절돼요.
+                        </p>
+                        <div
+                            class="doc-preview"
+                            id="headerPreviewScroll"
+                            style="
+                                padding: 0;
+                                overflow: hidden;
+                                border-radius: var(--r-lg);
+                                height: 320px;
+                                overflow-y: auto;
+                                position: relative;
+                            "
+                        >
+                            <div
+                                style="
+                                    background: linear-gradient(
+                                        160deg,
+                                        #e8e0ff 0%,
+                                        #f5f0ff 35%,
+                                        #f2f4f6 65%,
+                                        #fff 100%
+                                    );
+                                    padding-top: 0;
+                                "
+                            >
+                                <div
+                                    class="ld-app-header"
+                                    id="demoAppHeader"
+                                    data-ld-app-header
+                                    data-scroll-el="#headerPreviewScroll"
+                                    style="
+                                        position: sticky;
+                                        top: 0;
+                                        background: rgba(255, 255, 255, 0);
+                                    "
+                                >
+                                    <button
+                                        class="ld-icon-btn ld-fab ld-squish"
+                                        style="width: 36px; height: 36px"
+                                    >
+                                        <span
+                                            class="mgc_left_line"
+                                            style="
+                                                font-size: 16px;
+                                                color: var(--ld-grey-700);
+                                            "
+                                        ></span>
+                                    </button>
+                                    <span class="ld-label-lg">주식 잔고</span>
+                                    <button
+                                        class="ld-icon-btn ld-fab ld-squish"
+                                        style="width: 36px; height: 36px"
+                                    >
+                                        <span
+                                            class="mgc_more_2_line"
+                                            style="
+                                                font-size: 16px;
+                                                color: var(--ld-grey-700);
+                                            "
+                                        ></span>
+                                    </button>
+                                </div>
+                                <div style="padding: 0 20px 32px">
+                                    <div
+                                        style="
+                                            text-align: center;
+                                            padding: 28px 0 20px;
+                                        "
+                                    >
+                                        <div
+                                            style="
+                                                font-size: 13px;
+                                                color: var(--ld-grey-500);
+                                                margin-bottom: 6px;
+                                            "
+                                        >
+                                            총 자산 가치
+                                        </div>
+                                        <div
+                                            class="ld-t1"
+                                            style="color: var(--ld-grey-900)"
+                                        >
+                                            ₩1,284,000
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="ld-card-section"
+                                        style="margin: 0 0 12px"
+                                    >
+                                        <div class="ld-list-row ld-squish">
+                                            <div
+                                                class="ld-lr-icon ld-lr-icon-violet"
+                                            >
+                                                A
+                                            </div>
+                                            <div class="ld-lr-content">
+                                                <div class="ld-lr-title">
+                                                    Apple Inc.
+                                                </div>
+                                                <div class="ld-lr-sub">
+                                                    AAPL · 5주
+                                                </div>
+                                            </div>
+                                            <div class="ld-lr-right">
+                                                <span
+                                                    class="ld-lr-value ld-lr-value-pos"
+                                                    >+₩42,000</span
+                                                ><span class="ld-lr-chevron"
+                                                    ><span
+                                                        class="mgc_right_line"
+                                                    ></span
+                                                ></span>
+                                            </div>
+                                        </div>
+                                        <div class="ld-list-row ld-squish">
+                                            <div class="ld-lr-icon">N</div>
+                                            <div class="ld-lr-content">
+                                                <div class="ld-lr-title">
+                                                    Netflix
+                                                </div>
+                                                <div class="ld-lr-sub">
+                                                    NFLX · 2주
+                                                </div>
+                                            </div>
+                                            <div class="ld-lr-right">
+                                                <span
+                                                    class="ld-lr-value ld-lr-value-neg"
+                                                    >-₩18,500</span
+                                                ><span class="ld-lr-chevron"
+                                                    ><span
+                                                        class="mgc_right_line"
+                                                    ></span
+                                                ></span>
+                                            </div>
+                                        </div>
+                                        <div class="ld-list-row ld-squish">
+                                            <div
+                                                class="ld-lr-icon ld-lr-icon-green"
+                                            >
+                                                G
+                                            </div>
+                                            <div class="ld-lr-content">
+                                                <div class="ld-lr-title">
+                                                    Google
+                                                </div>
+                                                <div class="ld-lr-sub">
+                                                    GOOGL · 1주
+                                                </div>
+                                            </div>
+                                            <div class="ld-lr-right">
+                                                <span
+                                                    class="ld-lr-value ld-lr-value-pos"
+                                                    >+₩9,200</span
+                                                ><span class="ld-lr-chevron"
+                                                    ><span
+                                                        class="mgc_right_line"
+                                                    ></span
+                                                ></span>
+                                            </div>
+                                        </div>
+                                        <div class="ld-list-row ld-squish">
+                                            <div
+                                                class="ld-lr-icon"
+                                                style="
+                                                    background: #fef2f2;
+                                                    color: #f04452;
+                                                "
+                                            >
+                                                S
+                                            </div>
+                                            <div class="ld-lr-content">
+                                                <div class="ld-lr-title">
+                                                    Samsung
+                                                </div>
+                                                <div class="ld-lr-sub">
+                                                    005930 · 10주
+                                                </div>
+                                            </div>
+                                            <div class="ld-lr-right">
+                                                <span
+                                                    class="ld-lr-value ld-lr-value-neg"
+                                                    >-₩5,000</span
+                                                ><span class="ld-lr-chevron"
+                                                    ><span
+                                                        class="mgc_right_line"
+                                                    ></span
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="height: 60px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="dock">
+                        <div class="doc-section-title">레이아웃</div>
+                        <h2 class="doc-section-heading">내비게이션</h2>
+                        <p class="doc-section-desc">
+                            알약 형태의 글래스모피즘 내비게이션으로 거리감과
+                            깊이를 표현해요.
+                        </p>
+                        <div
+                            class="doc-preview grey"
+                            style="
+                                padding: 0;
+                                overflow: hidden;
+                                min-height: 200px;
+                                border-radius: var(--r-lg);
+                            "
+                        >
+                            <div
+                                style="
+                                    position: relative;
+                                    height: 200px;
+                                    background: linear-gradient(
+                                        180deg,
+                                        #ede9fe 0%,
+                                        #f2f4f6 50%,
+                                        white 100%
+                                    );
+                                "
+                            >
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 16px;
+                                        left: 50%;
+                                        transform: translateX(-50%);
+                                        width: calc(100% - 24px);
+                                        max-width: 420px;
+                                    "
+                                >
+                                    <div
+                                        class="ld-dock"
+                                        data-ld-dock
+                                        style="
+                                            position: relative;
+                                            bottom: auto;
+                                            left: auto;
+                                            transform: none;
+                                            width: 100%;
+                                            max-width: 100%;
+                                        "
+                                    >
+                                        <div class="ld-dock-item active">
+                                            <span class="ld-dock-icon"
+                                                ><span
+                                                    class="mgc_home_3_fill"
+                                                ></span
+                                            ></span>
+                                            <span class="ld-dock-label"
+                                                >홈</span
+                                            >
+                                        </div>
+                                        <div class="ld-dock-item">
+                                            <div class="ld-dock-badge">3</div>
+                                            <span class="ld-dock-icon"
+                                                ><span
+                                                    class="mgc_wallet_2_line"
+                                                ></span
+                                            ></span>
+                                            <span class="ld-dock-label"
+                                                >자산</span
+                                            >
+                                        </div>
+                                        <div class="ld-dock-item">
+                                            <span class="ld-dock-icon"
+                                                ><span
+                                                    class="mgc_add_circle_line"
+                                                ></span
+                                            ></span>
+                                            <span class="ld-dock-label"
+                                                >결제</span
+                                            >
+                                        </div>
+                                        <div class="ld-dock-item">
+                                            <span class="ld-dock-icon"
+                                                ><span
+                                                    class="mgc_user_3_line"
+                                                ></span
+                                            ></span>
+                                            <span class="ld-dock-label"
+                                                >마이</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="webheader">
+                        <div class="doc-section-title">레이아웃</div>
+                        <h2 class="doc-section-heading">웹 헤더</h2>
+                        <p class="doc-section-desc">
+                            웹 환경에서는 헤더를 통해서 브랜드를 표현하고 주요
+                            내비게이션을 제공해요.
+                        </p>
+                        <div
+                            class="doc-preview"
+                            style="
+                                padding: 0;
+                                overflow: hidden;
+                                border-radius: var(--r-lg);
+                            "
+                        >
+                            <div
+                                class="ld-web-header"
+                                style="position: relative; top: auto"
+                            >
+                                <div
+                                    style="
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 8px;
+                                    "
+                                >
+                                    <span
+                                        style="
+                                            font-family: var(--font-display);
+                                            font-size: 18px;
+                                            color: var(--ld-grey-900);
+                                            letter-spacing: -0.01em;
+                                        "
+                                        >LuoDesign</span
+                                    >
+                                </div>
+                                <nav class="ld-web-header-nav">
+                                    <a href="#" class="ld-web-nav-link active"
+                                        >제품</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link">가격</a>
+                                    <a href="#" class="ld-web-nav-link"
+                                        >블로그</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link"
+                                        >채용공고</a
+                                    >
+                                </nav>
+                                <div style="display: flex; gap: 8px">
+                                    <button
+                                        class="ld-btn ld-btn-ghost ld-btn-md"
+                                    >
+                                        로그인
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-md"
+                                    >
+                                        3개월 무료 체험
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="webfooter">
+                        <div class="doc-section-title">레이아</div>
+                        <h2 class="doc-section-heading">웹 푸터</h2>
+                        <div
+                            class="doc-preview"
+                            style="
+                                padding: 0;
+                                overflow: hidden;
+                                border-radius: var(--r-lg);
+                            "
+                        >
+                            <div class="ld-web-footer">
+                                <div class="ld-web-footer-grid">
+                                    <div>
+                                        <div class="ld-web-footer-brand">
+                                            LuoDesign
+                                        </div>
+                                        <div class="ld-web-footer-desc">
+                                            그저 넣기만 하면 되는 바닐라 CSS/JS
+                                            디자인 라이브러리 !
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="ld-web-footer-col-title">
+                                            제품
+                                        </div>
+                                        <a href="#" class="ld-web-footer-link"
+                                            >컴포넌트</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >토큰</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >아이콘</a
+                                        >
+                                    </div>
+                                    <div>
+                                        <div class="ld-web-footer-col-title">
+                                            리소스
+                                        </div>
+                                        <a href="#" class="ld-web-footer-link"
+                                            >문서</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >GitHub</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >Figma</a
+                                        >
+                                    </div>
+                                    <div>
+                                        <div class="ld-web-footer-col-title">
+                                            회사
+                                        </div>
+                                        <a href="#" class="ld-web-footer-link"
+                                            >소개</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >블로그</a
+                                        ><a href="#" class="ld-web-footer-link"
+                                            >채용공고</a
+                                        >
+                                    </div>
+                                </div>
+                                <div class="ld-web-footer-bottom">
+                                    <span>© 2026 d0ulLabs. MIT License.</span>
+                                    <div style="display: flex; gap: 16px">
+                                        <a
+                                            href="#"
+                                            class="ld-web-footer-link"
+                                            style="margin: 0"
+                                            >개인정보처리방침</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="ld-web-footer-link"
+                                            style="margin: 0"
+                                            >이용약관</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="sheet">
+                        <div class="doc-section-title">오버레이</div>
+                        <h2 class="doc-section-heading">하단 시트</h2>
+                        <p class="doc-section-desc">
+                            하단에서부터 나타나는 시트로, 주요 행동을 유도하거나
+                            간단한 정보를 보여줄 때 사용해요. 배경을 어둡게
+                            처리하여 시트에 집중할 수 있도록 도와줘요.
+                        </p>
+                        <div
+                            class="doc-preview grey"
+                            style="text-align: center; padding: 48px"
+                        >
+                            <button
+                                class="ld-btn ld-btn-secondary ld-btn-lg ld-squish"
+                                data-ld-trigger="demoSheet"
+                            >
+                                <span
+                                    class="mgc_arrow_up_line"
+                                    style="font-size: 18px"
+                                ></span>
+                                시트 열기
+                            </button>
+                        </div>
+                        <div
+                            class="ld-sheet-backdrop"
+                            data-ld-backdrop="demoSheet"
+                        ></div>
+                        <div
+                            class="ld-bottom-sheet"
+                            id="demoSheet"
+                            data-ld-sheet
+                        >
+                            <div class="ld-sheet-handle"></div>
+                            <div class="ld-t3" style="margin-bottom: 6px">
+                                이메일 전송
+                            </div>
+                            <div
+                                class="ld-body-sm"
+                                style="
+                                    margin-bottom: 20px;
+                                    color: var(--ld-grey-600);
+                                "
+                            >
+                                아래 내용을 확인하고 메일을 보내주세요.
+                            </div>
+                            <div
+                                style="
+                                    background: var(--ld-grey-100);
+                                    border-radius: var(--r-sm);
+                                    padding: 16px;
+                                    margin-bottom: 8px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                "
+                            >
+                                <span class="ld-body-sm">받는 분</span
+                                ><span class="ld-label-lg">이도울</span>
+                            </div>
+                            <div
+                                style="
+                                    background: var(--ld-grey-100);
+                                    border-radius: var(--r-sm);
+                                    padding: 16px;
+                                    margin-bottom: 20px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                "
+                            >
+                                <span class="ld-body-sm">메일 주소</span
+                                ><span
+                                    class="ld-label-lg"
+                                    style="color: var(--ld-violet-600)"
+                                    >support@pcor.me</span
+                                >
+                            </div>
+                            <button
+                                class="ld-btn ld-btn-primary ld-btn-xl ld-btn-full ld-squish"
+                                data-ld-trigger="demoSheet"
+                            >
+                                <span
+                                    class="mgc_send_plane_line"
+                                    style="font-size: 18px"
+                                ></span>
+                                메일 보내기
+                            </button>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="toast">
+                        <div class="doc-section-title">오버레이</div>
+                        <h2 class="doc-section-heading">토스트</h2>
+                        <p class="doc-section-desc">
+                            간단한 메시지를 잠시 보여주는 토스트로, 작업의
+                            결과나 상태를 알릴 때 사용해요. 화면 하단에 나타나며
+                            자동으로 사라져요.
+                        </p>
+                        <div
+                            class="doc-preview grey"
+                            style="
+                                text-align: center;
+                                padding: 40px;
+                                overflow: visible;
+                            "
+                        >
+                            <div
+                                style="
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    gap: 10px;
+                                    justify-content: center;
+                                "
+                            >
+                                <button
+                                    class="ld-btn ld-btn-secondary ld-btn-lg ld-squish"
+                                    onclick="LuoDesign.toast('완료 !')"
+                                >
+                                    기본 토스트
+                                </button>
+                                <button
+                                    class="ld-btn ld-btn-secondary ld-btn-lg ld-squish"
+                                    onclick="LuoDesign.toast('저장했어요.')"
+                                >
+                                    <span
+                                        class="mgc_check_line"
+                                        style="font-size: 16px"
+                                    ></span>
+                                    성공 토스트
+                                </button>
+                                <button
+                                    class="ld-btn ld-btn-danger ld-btn-lg ld-squish"
+                                    onclick="
+                                        LuoDesign.toast(
+                                            '이런 ,,, 문제가 생겼어요.',
+                                        )
+                                    "
+                                >
+                                    <span
+                                        class="mgc_close_line"
+                                        style="font-size: 16px"
+                                    ></span>
+                                    오류 토스트
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ld-toast-host"></div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="squish">
+                        <div class="doc-section-title">패턴</div>
+                        <h2 class="doc-section-heading">스퀴시 인터랙션</h2>
+                        <p class="doc-section-desc">
+                            <code>.ld-squish</code>를 상호작용 가능한 요소에
+                            추가해서 누르는 동안 살짝 눌리는 효과를 줄 수
+                            있어요. 버튼, 카드, 리스트 로우 등 다양한 컴포넌트에
+                            적용 가능해요.
+                        </p>
+                        <div class="doc-preview grey" style="padding: 32px">
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 16px;
+                                    margin-bottom: 20px;
+                                "
+                            >
+                                <div
+                                    class="ld-card ld-card-p ld-squish"
+                                    style="
+                                        cursor: pointer;
+                                        border: 1.5px solid var(--ld-grey-200);
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            width: 36px;
+                                            height: 36px;
+                                            background: var(--ld-violet-100);
+                                            border-radius: 10px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            margin-bottom: 10px;
+                                        "
+                                    >
+                                        <span
+                                            class="mgc_star_line"
+                                            style="
+                                                font-size: 18px;
+                                                color: var(--ld-violet-500);
+                                            "
+                                        ></span>
+                                    </div>
+                                    <div
+                                        class="ld-t4"
+                                        style="margin-bottom: 4px"
+                                    >
+                                        카드 스퀴시
+                                    </div>
+                                    <div class="ld-body-sm">
+                                        카드가 말랑말랑 -!
+                                    </div>
+                                </div>
+                                <div
+                                    class="ld-card ld-card-p ld-squish"
+                                    style="
+                                        cursor: pointer;
+                                        border: 1.5px solid var(--ld-grey-200);
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            width: 36px;
+                                            height: 36px;
+                                            background: #dcfce7;
+                                            border-radius: 10px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            margin-bottom: 10px;
+                                        "
+                                    >
+                                        <span
+                                            class="mgc_shield_line"
+                                            style="
+                                                font-size: 18px;
+                                                color: #15803d;
+                                            "
+                                        ></span>
+                                    </div>
+                                    <div
+                                        class="ld-t4"
+                                        style="margin-bottom: 4px"
+                                    >
+                                        하나 더 !
+                                    </div>
+                                    <div class="ld-body-sm">
+                                        스퀴시 효과는 이렇게 간단하게 !
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-wrap" style="margin-bottom: 16px">
+                                <button class="ld-btn ld-btn-primary ld-btn-lg">
+                                    눌러봐요 -!
+                                </button>
+                                <div
+                                    class="ld-icon-btn ld-fab ld-squish"
+                                    style="width: 44px; height: 44px"
+                                >
+                                    <span
+                                        class="mgc_heart_line"
+                                        style="
+                                            font-size: 20px;
+                                            color: var(--ld-grey-700);
+                                        "
+                                    ></span>
+                                </div>
+                            </div>
+                            <div class="ld-card-section" style="margin: 0">
+                                <div class="ld-list-row ld-squish">
+                                    <div class="ld-lr-icon ld-lr-icon-violet">
+                                        <span
+                                            class="mgc_lightning_line"
+                                            style="font-size: 16px"
+                                        ></span>
+                                    </div>
+                                    <div class="ld-lr-content">
+                                        <div class="ld-lr-title">리스트 1</div>
+                                        <div class="ld-lr-sub">
+                                            리스트 로우에도 적용 가능해요.
+                                        </div>
+                                    </div>
+                                    <span class="ld-lr-chevron"
+                                        ><span class="mgc_right_line"></span
+                                    ></span>
+                                </div>
+                                <div class="ld-list-row ld-squish">
+                                    <div class="ld-lr-icon ld-lr-icon-green">
+                                        <span
+                                            class="mgc_check_line"
+                                            style="font-size: 16px"
+                                        ></span>
+                                    </div>
+                                    <div class="ld-lr-content">
+                                        <div class="ld-lr-title">리스트 2</div>
+                                    </div>
+                                    <span class="ld-lr-chevron"
+                                        ><span class="mgc_right_line"></span
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doc-code">
+                            <span class="c"></span>
+                            <span class="p">&lt;div</span>
+                            <span class="k">class</span>=<span class="s"
+                                >"ld-card ld-squish"</span
+                            ><span class="p">&gt;</span>카드 콘텐츠<span
+                                class="p"
+                                >&lt;/div&gt;</span
+                            >
+                            <span class="p">&lt;button</span>
+                            <span class="k">class</span>=<span class="s"
+                                >"ld-btn ld-btn-primary ld-btn-lg"</span
+                            ><span class="p">&gt;</span>버튼 (기본 내장)<span
+                                class="p"
+                                >&lt;/button&gt;</span
+                            >
+                            <span class="p">&lt;span</span>
+                            <span class="k">class</span>=<span class="s"
+                                >"ld-chip ld-chip-violet ld-squish"</span
+                            ><span class="p">&gt;</span>칩<span class="p"
+                                >&lt;/span&gt;</span
+                            >
+                            <span class="c"></span>
+                            <span class="p">.ld-squish</span> {
+                            <span class="k">transition</span>:
+                            <span class="v"
+                                >transform 0.15s var(--spring), filter
+                                0.15s</span
+                            >; } <span class="p">.ld-squish:active</span> {
+                            <span class="k">transform</span>:
+                            <span class="v">scale(0.94)</span>;
+                            <span class="k">filter</span>:
+                            <span class="v">brightness(0.92)</span>; }
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="chat">
+                        <div class="doc-section-title">패턴</div>
+                        <h2 class="doc-section-heading">채팅 입력</h2>
+                        <p class="doc-section-desc">
+                            채팅 환경에서 사용할 수 있는 입력 바 패턴이에요.
+                            텍스트 영역과 전송 버튼으로 구성되어 있으며, 글자를
+                            입력하면 TextArea의 높이가 자동으로 조절돼요.
+                        </p>
+                        <div class="doc-preview grey" style="padding: 24px">
+                            <div style="max-width: 400px; margin: 0 auto">
+                                <div class="ld-chat-input-bar" data-ld-chat>
+                                    <textarea
+                                        class="ld-chat-textarea"
+                                        placeholder="무엇을 도와드릴까요 ?"
+                                        rows="1"
+                                    ></textarea>
+                                    <button
+                                        class="ld-chat-send"
+                                        disabled
+                                        onclick="
+                                            LuoDesign.toast(
+                                                '메시지가 전송되었어요.',
+                                            )
+                                        "
+                                    >
+                                        <span
+                                            class="mgc_send_plane_fill"
+                                        ></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="doc-rule"></div>
+                    <section class="doc-section" id="prpage">
+                        <div class="doc-section-title">패턴</div>
+                        <h2 class="doc-section-heading">데모</h2>
+                        <p class="doc-section-desc">
+                            LuoDesign 컴포넌트를 통해 만든 랜딩 페이지
+                            샘플이에요.
+                        </p>
+                        <div
+                            style="
+                                border-radius: var(--r-lg);
+                                overflow: hidden;
+                                border: 1px solid var(--ld-grey-200);
+                            "
+                        >
+                            <div
+                                class="ld-web-header"
+                                style="
+                                    position: relative;
+                                    top: auto;
+                                    border-radius: 0;
+                                "
+                            >
+                                <div
+                                    style="
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 8px;
+                                    "
+                                >
+                                    <span
+                                        style="
+                                            font-family: var(--font-display);
+                                            font-size: 18px;
+                                            color: var(--ld-grey-900);
+                                        "
+                                        >LuoDesign</span
+                                    >
+                                </div>
+                                <nav class="ld-web-header-nav">
+                                    <a href="#" class="ld-web-nav-link"
+                                        >서비스</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link"
+                                        >도입 사례</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link"
+                                        >회사 소개</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link"
+                                        >채용공고</a
+                                    >
+                                    <a href="#" class="ld-web-nav-link"
+                                        >보도자료</a
+                                    >
+                                </nav>
+                                <button class="ld-btn ld-btn-primary ld-btn-md">
+                                    설치하기
+                                </button>
+                            </div>
+                            <div
+                                style="
+                                    background: linear-gradient(
+                                        160deg,
+                                        #f5f3ff 0%,
+                                        #ffffff 60%
+                                    );
+                                    padding: 72px 64px 64px;
+                                    text-align: center;
+                                "
+                            >
+                                <span
+                                    class="ld-badge ld-badge-violet"
+                                    style="
+                                        margin-bottom: 20px;
+                                        display: inline-flex;
+                                    "
+                                    >LuoDesign 출시 !</span
+                                >
+                                <div style="height: 12px"></div>
+                                <div
+                                    class="ld-display"
+                                    style="font-size: 48px; margin-bottom: 16px"
+                                >
+                                    꿈을 향해<br /><span
+                                        style="color: var(--ld-violet-500)"
+                                        >새로운 마음으로</span
+                                    >
+                                </div>
+                                <p
+                                    class="ld-body-lg"
+                                    style="
+                                        max-width: 480px;
+                                        margin: 0 auto 32px;
+                                        color: var(--ld-grey-600);
+                                    "
+                                >
+                                    LuoDesign을 통해서 간단하게 미려한 웹
+                                    페이지를 만들어봣어요 !
+                                </p>
+                                <div
+                                    style="
+                                        display: flex;
+                                        gap: 12px;
+                                        justify-content: center;
+                                    "
+                                >
+                                    <button
+                                        class="ld-btn ld-btn-primary ld-btn-lg ld-squish"
+                                    >
+                                        지금 시작하기
+                                    </button>
+                                    <button
+                                        class="ld-btn ld-btn-outline ld-btn-lg ld-squish"
+                                    >
+                                        문서 보기
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    background: var(--ld-grey-100);
+                                    padding: 48px 40px;
+                                "
+                            >
+                                <div
+                                    style="
+                                        display: grid;
+                                        grid-template-columns: 1fr 1fr 1fr;
+                                        gap: 16px;
+                                    "
+                                >
+                                    <div class="ld-card ld-card-p">
+                                        <div
+                                            style="
+                                                width: 40px;
+                                                height: 40px;
+                                                border-radius: 12px;
+                                                background: var(
+                                                    --ld-violet-100
+                                                );
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                margin-bottom: 14px;
+                                                color: var(--ld-violet-500);
+                                            "
+                                        >
+                                            <span
+                                                class="mgc_star_line"
+                                                style="font-size: 20px"
+                                            ></span>
+                                        </div>
+                                        <div
+                                            class="ld-t4"
+                                            style="margin-bottom: 6px"
+                                        >
+                                            고품질 컴포넌트
+                                        </div>
+                                        <div class="ld-body-sm">
+                                            컴포넌트를 조합하기만 해도 멋진 웹
+                                            페이지가 완성돼요.
+                                        </div>
+                                    </div>
+                                    <div class="ld-card ld-card-p">
+                                        <div
+                                            style="
+                                                width: 40px;
+                                                height: 40px;
+                                                border-radius: 12px;
+                                                background: #dcfce7;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                margin-bottom: 14px;
+                                                color: #15803d;
+                                            "
+                                        >
+                                            <span
+                                                class="mgc_shield_line"
+                                                style="font-size: 20px"
+                                            ></span>
+                                        </div>
+                                        <div
+                                            class="ld-t4"
+                                            style="margin-bottom: 6px"
+                                        >
+                                            열린 웹
+                                        </div>
+                                        <div class="ld-body-sm">
+                                            접근성 기준을 준수하고, 대체
+                                            텍스트와 키보드 내비게이션을
+                                            지원하여 누구나 사용할 수 있어요.
+                                        </div>
+                                    </div>
+                                    <div class="ld-card ld-card-p">
+                                        <div
+                                            style="
+                                                width: 40px;
+                                                height: 40px;
+                                                border-radius: 12px;
+                                                background: #fef3c7;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                margin-bottom: 14px;
+                                                color: #b45309;
+                                            "
+                                        >
+                                            <span
+                                                class="mgc_sun_line"
+                                                style="font-size: 20px"
+                                            ></span>
+                                        </div>
+                                        <div
+                                            class="ld-t4"
+                                            style="margin-bottom: 6px"
+                                        >
+                                            다크모드 지원
+                                        </div>
+                                        <div class="ld-body-sm">
+                                            시스템 설정을 자동으로 감지하여
+                                            다크모드와 라이트모드를 지원해요.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="ld-web-footer"
+                                style="padding: 32px 40px 28px"
+                            >
+                                <div
+                                    class="ld-web-footer-bottom"
+                                    style="border-top: none; padding-top: 0"
+                                >
+                                    <span>© 2026 LuoDesign. MIT License.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+        <button
+            class="ld-top-btn"
+            id="topBtn"
+            data-ld-back-to-top
+            title="맨 위로"
+        >
+            <span class="mgc_arrow_up_line"></span>
+        </button>
+        <script src="luodesign.js"></script>
+        <script>
+            function copySwatch(el, token) {
+                navigator.clipboard
+                    .writeText(token)
+                    .then(() => {
+                        el.classList.add("is-copied");
+                        LuoDesign.toast(token + " 색상을 복사했어요.");
+                        setTimeout(
+                            () => el.classList.remove("is-copied"),
+                            1200,
+                        );
+                    })
+                    .catch(() => {
+                        LuoDesign.toast(
+                            "복사에 실패했어요. 다시 시도해주세요.",
+                        );
+                    });
+            }
+            LuoDesign.scrollSpy(".doc-nav-link", "section[id]");
+        </script>
+    </body>
+</html>
