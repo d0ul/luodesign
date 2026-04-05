@@ -1,0 +1,25 @@
+{
+  "name": "luody",
+  "version": "1.0.0",
+  "description": "그저 넣기만 하면 작동되는 미려한 바닐라 CSS/JS 컴포넌트 라이브러리",
+  "main": "luody.css",
+  "files": [
+    "luody.css",
+    "luody.js"
+    "README.md"
+  ],
+  "keywords": ["css", "ui-kit", "responsive", "vanilla-css"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0ul/luody.git"
+  },
+  "author": "d0ul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d0ul/luody/issues"
+  },
+  "homepage": "https://github.com/d0ul/luody#readme"
+}
