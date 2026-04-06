@@ -8,8 +8,8 @@ This document provides strict rules and class references for AI agents to genera
 ## 1. Setup & Integration
 
 ```html
-<link href="[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap)" rel="stylesheet">
-<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css](https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css)">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css">
 <link rel="stylesheet" href="luodesign.css">
 <script src="luodesign.js"></script>
 ```

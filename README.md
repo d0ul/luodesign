@@ -33,8 +33,8 @@ Or via CDN:
 Include the Pretendard font and Mingcute icon set for the best experience.
 
 ```html
-<link href="[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap)" rel="stylesheet">
-<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css](https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css)">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css">
 ```
 
 Using React? You may import the CSS directly:

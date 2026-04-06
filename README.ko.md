@@ -33,8 +33,8 @@ npm install luodesign
 프리텐다드와 Mingcute 아이콘 세트를 포함하세요.
 
 ```html
-<link href="[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap)" rel="stylesheet">
-<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css](https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css)">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.71/font/Mingcute.min.css">
 ```
 
 React를 사용하신다구요 ? CSS를 직접 가져올 수 있어요.
